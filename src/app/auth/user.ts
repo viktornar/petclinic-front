@@ -1,4 +1,4 @@
-import { Role } from './role.enum';
+import { Role } from './role';
 
 export class User {
     id: number;
@@ -7,4 +7,3 @@ export class User {
     roles?: Role[];
     token?: string;
 }
-
