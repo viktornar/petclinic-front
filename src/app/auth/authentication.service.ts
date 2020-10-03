@@ -28,6 +28,7 @@ export class AuthenticationService {
       { username, password }
     )
       .pipe(map(user => {
+        debugger;
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);

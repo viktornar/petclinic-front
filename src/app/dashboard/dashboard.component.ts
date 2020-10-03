@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwnersService } from './owners.service';
 import { Owner } from './owner';
+import { AuthenticationService } from '../auth/authentication.service';
+import { User } from '../auth/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,11 +12,13 @@ import { Owner } from './owner';
 export class DashboardComponent implements OnInit {
   owners: Owner[];
   isLoading: boolean;
+  user: User;
 
-  constructor(private ownersService: OwnersService) { }
+  constructor(private ownersService: OwnersService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.getOwners();
+    this.user = this.authenticationService.currentUserValue;
   }
 
   getOwners() {
